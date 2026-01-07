@@ -247,7 +247,7 @@
             <div class="list-item">
                 <div class="list-info">
                     <h3>Mock Test 1</h3>
-                    <p>45 Questions </p>
+                    <p>45 Questions</p>
                 </div>
                 <button class="start-btn" onclick="startQuiz('mock1')">Start</button>
             </div>
@@ -280,7 +280,7 @@
         <!-- EXAM PREPPER SECTION -->
         <h2 class="section-title">Exam Prepper</h2>
         <div class="list-view">
-            <div class="list-item">
+            <div class="list-item prepper">
                 <div class="list-info">
                     <h3>Random 10Q</h3>
                     <p>10 Random from 136Q Bank</p>
@@ -288,7 +288,7 @@
                 <button class="start-btn" onclick="startQuiz('prep10')">Start</button>
             </div>
 
-            <div class="list-item">
+            <div class="list-item prepper">
                 <div class="list-info">
                     <h3>Random 25Q</h3>
                     <p>25 Random from 136Q Bank</p>
@@ -296,7 +296,7 @@
                 <button class="start-btn" onclick="startQuiz('prep25')">Start</button>
             </div>
 
-            <div class="list-item">
+            <div class="list-item prepper">
                 <div class="list-info">
                     <h3>Random 50Q</h3>
                     <p>50 Random from 136Q Bank</p>
@@ -304,7 +304,7 @@
                 <button class="start-btn" onclick="startQuiz('prep50')">Start</button>
             </div>
 
-            <div class="list-item">
+            <div class="list-item prepper">
                 <div class="list-info">
                     <h3>Random 136Q</h3>
                     <p>All 136 Questions</p>
@@ -312,7 +312,7 @@
                 <button class="start-btn" onclick="startQuiz('prep136')">Start</button>
             </div>
 
-            <div class="list-item" style="background: #2a3b4d; border-left-color: #81B5A1;">
+            <div class="list-item prepper" style="background: #2a3b4d; border-left-color: #81B5A1;">
                 <div class="list-info">
                     <h3 style="color:#ffffff;">Study All 136 MCQs</h3>
                     <p>View all questions with answers</p>
@@ -399,12 +399,12 @@
     <script>
         // ================= DATA SECTION =================
         
-        // MOCK TEST DATA
+        // MOCK TEST DATA (Provided by user)
         const mock1Data = [
             {"numb": 1, "question": "ServiceNow recommends keeping ______ separate to ensure stability and security.", "options": ["Development and Production Environments", "System Logs and User Data", "Incident Management and Problem Management", "On\u2011premise and Cloud Solutions"], "answer": "Development and Production Environments"},
             {"numb": 2, "question": "The CMDB in ServiceNow is used to track and manage IT assets and configuration items.", "options": ["True", "False"], "answer": "True"},
             {"numb": 3, "question": "Import Sets in ServiceNow can use ______ to transform data as it is imported.", "options": ["Transform Maps", "Workflow Scripts", "Business Rules", "UI Policies"], "answer": "Transform Maps"},
-            {"numb": 4, "question": "ServiceNow themes cannot be applied to individual applications, only to the entire instance.", "options": ["True", "False"], "answer": "True"},
+            {"numb": 4, "question": "ServiceNow themes cannot be applied to individual applications, only to the entire instance.", "options": ["True", "False"], "answer": "False"},
             {"numb": 5, "question": "What is the primary purpose of UI Builder in ServiceNow?", "options": ["To manage server-side logic", "To design and customize user interfaces", "To configure user roles and permissions", "To generate reports and analytics"], "answer": "To design and customize user interfaces"},
             {"numb": 6, "question": "UI Builder provides a ______ interface for designing and customizing user interfaces in ServiceNow.", "options": ["Drag-and-drop", "Text-based", "Command-line", "Script-driven"], "answer": "Drag-and-drop"},
             {"numb": 7, "question": "What is ServiceNow primarily used for?", "options": ["Video Editing", "Cloud Storage", "IT Service Management", "Graphic Design"], "answer": "IT Service Management"},
@@ -418,7 +418,7 @@
             {"numb": 15, "question": "______ integrations in ServiceNow use web services to allow applications to communicate over the internet.", "options": ["REST", "FTP", "SMTP", "SNMP"], "answer": "REST"},
             {"numb": 16, "question": "Which of the following is NOT a pre-built component in UI Builder?", "options": ["Table", "Chart", "Script Editor", "Form"], "answer": "Script Editor"},
             {"numb": 17, "question": "Portal pages in ServiceNow cannot be modified once they are published.", "options": ["True", "False"], "answer": "False"},
-            {"numb": 18, "question": "You cannot use custom code or scripting within UI Builder; it only supports pre-built components.", "options": ["True", "False"], "answer": "True"},
+            {"numb": 18, "question": "You cannot use custom code or scripting within UI Builder; it only supports pre-built components.", "options": ["True", "False"], "answer": "False"},
             {"numb": 19, "question": "The ______ environment is used for day-to-day business operations.", "options": ["Production", "Development", "Testing", "Staging"], "answer": "Production"},
             {"numb": 20, "question": "The ______ in ServiceNow is a framework for organizing configuration items (CIs) and their relationships.", "options": ["Configuration Management Database (CMDB)", "Incident Management System (IMS)", "Change Management Process (CMP)", "Knowledge Base (KB)"], "answer": "Configuration Management Database (CMDB)"},
             {"numb": 21, "question": "Which components can be used to display data in UI Builder?", "options": ["Data visualization", "Text input", "Table", "Button"], "answer": ["Data visualization", "Table"]},
@@ -445,7 +445,7 @@
             {"numb": 42, "question": "Which component is essential for laying out other components in UI Builder?", "options": ["Button", "Data visualization", "Text input", "Container"], "answer": "Container"},
             {"numb": 43, "question": "Which of the following are steps to create a new widget in ServiceNow? (Select all that apply)", "options": ["Navigate to the Widget Editor", "Select 'Create New Widget'", "Configure the widget properties", "Publish the widget to the Service Catalog"], "answer": ["Navigate to the Widget Editor", "Select 'Create New Widget'", "Configure the widget properties"]},
             {"numb": 44, "question": "Which of the following are benefits of using UI Builder in ServiceNow?", "options": ["Drag-and-drop interface", "Custom scripting capabilities", "Integration with external data sources", "Automated incident management"], "answer": "Drag-and-drop interface"},
-            {"numb": 45, "question": "UI Builder in ServiceNow allows for real-time data updates on the user interface?", "options": ["True", "False"], "answer": "True"},
+            {"numb": 45, "question": "UI Builder in ServiceNow allows for real-time data updates on the user interface?", "options": ["True", "False"], "answer": "True"}
         ];
 
         const mock2Data = [
@@ -546,6 +546,7 @@
 
         // 136 QUESTIONS BANK (FOR EXAM PREPPER)
         const examPrepperData = [
+            // ... (Exam Prepper data kept same) ...
             { "question": "Which of the following statements is true for the Form Designer?\n\na) To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.\nb) To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field.\nc) To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.\nd) To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.", "options": ["a, b, c, and d", "b, c, and d", "a, b, and d", "a, b, and c"], "answer": "a, b, and c" },
             { "question": "Which of the following are configured in an Email Notification?\n\na) Who will receive the notification.\nb) What content will be in the notification.\nc) When to send the notification.\nd) How to send the notification.", "options": ["a, b and c", "a, b, and d", "b, c and d", "a, c and d"], "answer": "a, b and c" },
             { "question": "To see what scripts, reports, and other application artifacts will be in a published application:", "options": ["Enter the name of the Application in the Global search field", "Open the list of Update Sets for the instance", "Examine the Application Files Related List in the application to be published", "Open the artifact records individually to verify the value in the Application field"], "answer": "Examine the Application Files Related List in the application to be published" },
@@ -575,13 +576,13 @@
             { "question": "When configuring a REST Message, the Endpoint is:", "options": ["The commands to the REST script to stop execution", "The URI of the data to be accessed, queried, or modified", "Information about the format of the returned data", "The response from the provider indicating there is no data to send back"], "answer": "The URI of the data to be accessed, queried, or modified" },
             { "question": "When evaluating Access Controls, ServiceNow searches and evaluates:", "options": ["Only for matches on the current table", "Only for matches on the current field", "From the most specific match to the most generic match", "From the most generic match to the most specific match"], "answer": "From the most specific match to the most generic match" },
             { "question": "In a Business Rule, which one of the following returns true if the currently logged in user has the admin role?", "options": ["g_form.hasRoleExactly('admin')", "gs.hasRole('admin')", "g_form.hasRole('admin')", "gs.hasRoleExactly('admin')"], "answer": "gs.hasRole('admin')" },
-            { "question": "From the list below, identify one reason an application might NOT be a good fit with ServiceNow. The application: \n", "options": ["Needs workflow to manage processes", "Requires as-is use of low-level programming libraries", "Requires reporting capabilities", "Uses forms extensively to interact with data"], "answer": "Requires as-is use of low-level programming libraries" },
+            { "question": "From the list below, identify one reason an application might NOT be a good fit with ServiceNow. The application: \n (Remember the 3 wrong answers there will be a specific question to select those three updating after i finished my cad exam)", "options": ["Needs workflow to manage processes", "Requires as-is use of low-level programming libraries", "Requires reporting capabilities", "Uses forms extensively to interact with data"], "answer": "Requires as-is use of low-level programming libraries" },
             { "question": "Identify the incorrect statement about Delegated Development in ServiceNow.", "options": ["Administrators can grant non-admin users the ability to develop global applications.", "Administrators can specify which application file types the developer can access.", "Administrators can grant the developer access to script fields.", "Administrators can grant the developer access to security records."], "answer": "Administrators can grant non-admin users the ability to develop global applications." },
             { "question": "One of the uses of the ServiceNow REST API Explorer is:", "options": ["Practice using REST to interact with public data providers", "Find resources on the web for learning about REST", "Convert SOAP Message functions to REST methods", "Create sample code for sending REST requests to ServiceNow"], "answer": "Create sample code for sending REST requests to ServiceNow" },
             { "question": "Which one of the following is true regarding Application Scope?", "options": ["All applications are automatically part of the Global scope", "Applications downloaded from 3rd party ServiceNow application developers cannot have naming conflicts", "Any developer can edit any application", "Developers can choose the prefix for a scope's namespace"], "answer": "Applications downloaded from 3rd party ServiceNow application developers cannot have naming conflicts" },
             { "question": "Which one of the following is the baseline behavior of a table in a privately-scoped application?", "options": ["The table and its data are not accessible using web services", "Any Business Rule can read, write, delete, and update from the table", "Only artifacts in the table's application can read from the table", "All application scopes can read from the table"], "answer": "All application scopes can read from the table" },
             { "question": "Which one of the following is NOT a purpose of application scoping?", "options": ["Provide a relationship between application artifacts", "Provide a way of tracking the user who developed an application", "Provide a namespace (prefix and scope name) to prevent cross application name collisions", "Provide controls for how scripts from another scope can alter tables in a scoped application"], "answer": "Provide a way of tracking the user who developed an application" },
-            { "question": "It is best practice to define the business requirements and the process(es) an application will manage as part of the application development plan. What are some of the considerations to document as part of the business process? \n ", "options": ["Business problem, data input/output, users/stakeholders, and process steps", "Business problem, data input/output, project schedule, and process steps", "Business problem, data input/output, users/stakeholders, and database capacity", "Business problem, users/stakeholders, available licenses, and database capacity"], "answer": "Business problem, data input/output, users/stakeholders, and process steps" },
+            { "question": "It is best practice to define the business requirements and the process(es) an application will manage as part of the application development plan. What are some of the considerations to document as part of the business process? \n (Remember all 4 steps you will be required to select those 4 options individually, updated after i finished my cad exam)", "options": ["Business problem, data input/output, users/stakeholders, and process steps", "Business problem, data input/output, project schedule, and process steps", "Business problem, data input/output, users/stakeholders, and database capacity", "Business problem, users/stakeholders, available licenses, and database capacity"], "answer": "Business problem, data input/output, users/stakeholders, and process steps" },
             { "question": "Which of the following statements does NOT apply when extending an existing table?", "options": ["The parent table's Access Controls are evaluated when determining access to the new table's records and fields", "The new table inherits the functionality built into the parent table", "The new table inherits all of the fields from the parent table", "You must script and configure all required behaviors"], "answer": "You must script and configure all required behaviors" },
             { "question": "Which of the following CANNOT be debugged using the Field Watcher?", "options": ["Business Rules", "Script Includes", "Client Scripts", "Access Controls"], "answer": "Script Includes" },
             { "question": "Which objects can be used in Inbound Action scripts?", "options": ["current and previous", "current and email", "current and event", "current and producer"], "answer": "current and email" },
@@ -665,7 +666,7 @@
             { "question": "Which of the following is NOT a caller access field option?", "options": ["Caller Tracking", "Caller Restriction", "None", "Caller Permission"], "answer": "Caller Permission" },
             { "question": "Which method is used to retrieve Application Property values in a script?", "options": ["gs.getProperty()", "g_form.getAppProperty()", "g_form.getProperty()", "gs.getAppProperty()"], "answer": "gs.getProperty()" },
             { "question": "What Module Link type is used to access an Application Properties page?", "options": ["Single Record", "HTML (from Arguments)", "URL (from Arguments)", "Script (from Arguments)"], "answer": "URL (from Arguments)" },
-            { "question": "Identify the way(s) an application can respond to an Event generated by the gs.eventQueue() method.\n\na. Script Action\nb. Scheduled Script Execution (Scheduled Job)\nc. UI Policy\nd. Email Notification\n", "options": ["b and c", "c", "a and d", "a and c"], "answer": "a and d" },
+            { "question": "Identify the way(s) an application can respond to an Event generated by the gs.eventQueue() method.\n\na. Script Action\nb. Scheduled Script Execution (Scheduled Job)\nc. UI Policy\nd. Email Notification\n\nA. b and c\nB. c\nC. a and d\nD. a and c", "options": ["b and c", "c", "a and d", "a and c"], "answer": "a and d" },
             { "question": "When troubleshooting and debugging notifications, where do you navigate to see if an email was sent in response to an event?", "options": ["System Logs > Events", "System Logs > Emails", "System Logs > Push Notifications", "System Logs > ICE Logs"], "answer": "System Logs > Emails" },
             { "question": "What are the benefits of storing the majority of an Application’s server-side script logic in a Script Include?\n\na. This makes execution faster.\nb. Only run when called from a script.\nc. The script logic can be hidden when the Application is installed from the ServiceNow Store.\nd. For some changes to application logic there is only one place to make edits.\n\nA. a, b, and d\nB. a, b, c, and d\nC. b, c, and d\nD. a, b, and c", "options": ["a, b, and d", "a, b, c, and d", "b, c, and d", "a, b, and c"], "answer": "b, c, and d" },
             { "question": "Which of the following is NOT a Flow Designer feature?", "options": ["Run a flow from a Catalog item", "Call a flow from another flow or subflow", "Add stages to a flow", "Test a flow using the “Run as” feature"], "answer": "Call a flow from another flow or subflow" },
@@ -681,7 +682,7 @@
             { "question": "Which of the following is true about g_scratchpad? (Choose two.)", "options": ["Used to push information from the server to the client", "Does not exist on the mobile platform", "Has constructors and methods", "Has default properties passed by client-side scripts"], "answer": ["Used to push information from the server to the client", "Does not exist on the mobile platform"] },
             { "question": "When debugging Email Notifications, what must you check on a user record? (Choose two.)", "options": ["Active must be true.", "The Email field must have a valid value.", "The user must not be locked out.", "The First name and Last name fields must have values.", "Delegation must be enabled."], "answer": ["Active must be true.", "The Email field must have a valid value."] },
             { "question": "What is required to link a ServiceNow application to a Git repository? (Choose three.)", "options": ["URI", "ACL", "Application name", "Password", "User name", "URL"], "answer": ["Password", "User name", "URL"] },
-            { "question": "What data types of Flow Designer variables are supported to store record data and complex data? (Choose three.)", "options": ["Label data type", "Integer", "Array.Reference", "Choice", "String"], "answer": ["Integer", "Choice", "String"] }
+            { "question": "What data types of Flow Designer variables are supported to store record data and complex data? (Choose three.)", "options": ["Label data type", "Integer", "Array.Reference", "Choice", "String"], "answer": ["Integer", "Array.Reference", "String"] }
         ];
 
         // OTHER MCQ SET 1 (Original data split - Part 1)
@@ -737,7 +738,7 @@
       "Add stages to a flow",
       "Test a flow using the \"Run as\" feature"
     ],
-    "answer": "Call a flow from another flow or subflow."
+    "answer": "Test a flow using the \"Run as\" feature"
   },
   {
     "question": "What is the purpose of the coalesce field when importing data?",
