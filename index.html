@@ -111,13 +111,19 @@ padding: 16px 20px;
 margin-bottom: 12px;
 border-radius: 8px;
 cursor: pointer;
-transition: all 0.2s ease;
+transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
 border: 2px solid transparent;
 font-size: 17px;
 color: #ddd;
+position: relative;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.option-item:hover { background: #484848; transform: translateY(-1px); }
+.option-item:hover { 
+    background: #484848; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
 /* STATES */
 .option-item.selected {
@@ -126,16 +132,25 @@ border-color: #4da3ff; 
 color: white;
 }
 
+/* ELEVATION EFFECTS FOR ANSWERS (Stronger Pop) */
 .option-item.correct {
-background-color: #1b4b2a !important; 
-border-color: #2ecc71 !important;
-color: white;
+    background-color: #1b4b2a !important; 
+    border-color: #2ecc71 !important;
+    color: white;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 28px rgba(46, 204, 113, 0.25), 0 10px 10px rgba(46, 204, 113, 0.22);
+    z-index: 10;
+    font-weight: 600;
 }
 
 .option-item.wrong {
-background-color: #5c1e26 !important; 
-border-color: #e74c3c !important;
-color: white;
+    background-color: #5c1e26 !important; 
+    border-color: #e74c3c !important;
+    color: white;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 28px rgba(231, 76, 60, 0.25), 0 10px 10px rgba(231, 76, 60, 0.22);
+    z-index: 10;
+    font-weight: 600;
 }
 
 /* NAV BUTTONS */
@@ -283,7 +298,7 @@ font-weight: bold;
 <div class="list-item prepper">
 <div class="list-info">
 <h3>Random 10Q</h3>
-<p>10 Random from 136Q Bank</p>
+<p>10 Random from 156Q Bank</p>
 </div>
 <button class="start-btn" onclick="startQuiz('prep10')">Start</button>
 </div>
@@ -291,7 +306,7 @@ font-weight: bold;
 <div class="list-item prepper">
 <div class="list-info">
 <h3>Random 25Q</h3>
-<p>25 Random from 136Q Bank</p>
+<p>25 Random from 156Q Bank</p>
 </div>
 <button class="start-btn" onclick="startQuiz('prep25')">Start</button>
 </div>
@@ -299,22 +314,22 @@ font-weight: bold;
 <div class="list-item prepper">
 <div class="list-info">
 <h3>Random 50Q</h3>
-<p>50 Random from 136Q Bank</p>
+<p>50 Random from 156Q Bank</p>
 </div>
 <button class="start-btn" onclick="startQuiz('prep50')">Start</button>
 </div>
 
 <div class="list-item prepper">
 <div class="list-info">
-<h3>Random 136Q</h3>
-<p>All 136 Questions</p>
+<h3>Random 156Q</h3>
+<p>All 156 Questions</p>
 </div>
-<button class="start-btn" onclick="startQuiz('prep136')">Start</button>
+<button class="start-btn" onclick="startQuiz('prep156')">Start</button>
 </div>
 
 <div class="list-item prepper" style="background: #2a3b4d; border-left-color: #81B5A1;">
 <div class="list-info">
-<h3 style="color:#ffffff;">Study All 136 MCQs</h3>
+<h3 style="color:#ffffff;">Study All 156 MCQs</h3>
 <p>View all questions with answers</p>
 </div>
 <button class="start-btn" style="background:#555;" onclick="startStudyMode()">View</button>
@@ -682,7 +697,107 @@ const examPrepperData = [
 { "question": "Which of the following is true about g_scratchpad? (Choose two.)", "options": ["Used to push information from the server to the client", "Does not exist on the mobile platform", "Has constructors and methods", "Has default properties passed by client-side scripts"], "answer": ["Used to push information from the server to the client", "Does not exist on the mobile platform"] },
 { "question": "When debugging Email Notifications, what must you check on a user record? (Choose two.)", "options": ["Active must be true.", "The Email field must have a valid value.", "The user must not be locked out.", "The First name and Last name fields must have values.", "Delegation must be enabled."], "answer": ["Active must be true.", "The Email field must have a valid value."] },
 { "question": "What is required to link a ServiceNow application to a Git repository? (Choose three.)", "options": ["URI", "ACL", "Application name", "Password", "User name", "URL"], "answer": ["Password", "User name", "URL"] },
-            { "question": "What data types of Flow Designer variables are supported to store record data and complex data? (Choose three.)", "options": ["Label data type", "Integer", "Array.Reference", "Choice", "String"], "answer": ["Integer", "Array.Reference", "String"] }
+            { "question": "What data types of Flow Designer variables are supported to store record data and complex data? (Choose three.)", "options": ["Label data type", "Integer", "Array.Reference", "Choice", "String"], "answer": ["Integer", "Array.Reference", "String"] },
+{
+"question": "Which of the following statements is NOT true for the Form Designer?",
+"options": ["To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.", "To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field.", "To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.", "To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form."],
+"answer": "To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form."
+},
+{
+"question": "What is the ServiceNow App Repository?",
+"options": ["A collection of files in a Git database", "A database containing ServiceNow apps", "A Request table", "Another name for update sets"],
+"answer": "A database containing ServiceNow apps"
+},
+{
+"question": "Which of the following statements is true for the Form Designer? (a) To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form. (b) To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field. (c) To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button. (d) To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.",
+"options": ["a, b, and d", "b, c, and d", "a, b, c, and d", "a, b, and c"],
+"answer": "a, b, and c"
+},
+{
+"question": "Which are valid caller access field options? (Choose three.)",
+"options": ["Caller Restriction", "Caller Permission", "Accessible from", "Caller Tracking", "None", "Allow Configuration"],
+"answer": ["Caller Restriction", "Caller Tracking", "None"]
+},
+{
+"question": "When creating application tables, a user role is automatically added to the table record. Which other role does an application typically have?",
+"options": ["Application Fulfiller", "Application Super User", "Application Admin", "Application Manager"],
+"answer": "Application Admin"
+},
+{
+"question": "What are some of the benefits of extending an existing table such as the Task table when creating a new application? (a) You can repurpose existing fields by simply changing the label. (b) Use existing fields with no modifications. (c) Existing logic from the parent table will be automatically applied to the new table. (d) All of the parent table records are copied to the new table.",
+"options": ["a, b, and c", "a and b", "a, b, c, and d", "b and c"],
+"answer": "a, b, and c"
+},
+{
+"question": "Which one of the following is a benefit of creating an Application Properties page for each application you develop?",
+"options": ["Application Properties allow a developer to override the application properties inherited from ServiceNow", "Application Properties allow a developer or admin to make changes to an application's behavior without modifying application artifacts", "An Application Properties page is a good landing page for an application", "Application users know to go to the Application Properties page to change the appearance of an application"],
+"answer": "Application Properties allow a developer or admin to make changes to an application's behavior without modifying application artifacts"
+},
+{
+"question": "When troubleshooting and debugging notifications, where do you navigate to see if an email was sent in response to an event?",
+"options": ["System Logs > Emails", "System Logs > ICE Logs", "System Logs > Events", "System Logs > Push Notifications"],
+"answer": "System Logs > Emails"
+},
+{
+"question": "Client-side scripts manage what?",
+"options": ["User access", "Forms and Form Fields", "Playbook access", "Database and backend"],
+"answer": "Forms and Form Fields"
+},
+{
+"question": "When crafting a scoped application that contains flow actions, what is the application called?",
+"options": ["Bundle", "Flow", "Action", "Spoke"],
+"answer": "Spoke"
+},
+{
+"question": "What occurs when an existing table is extended in ServiceNow?",
+"options": ["The new table does not inherit any of the fields from the parent table.", "The parent table's Access Controls are ignored when determining access to the new table's records and fields.", "You must script and configure all required behaviors.", "The new table inherits the functionality built into the parent table."],
+"answer": "The new table inherits the functionality built into the parent table."
+},
+{
+"question": "What data types of Flow Variables are supported to store record data? (Choose three.)",
+"options": ["Array", "Integer", "Date", "String", "Choice"],
+"answer": ["Array", "Integer", "String"]
+},
+{
+"question": "When creating an application through the Guided Application Creator, what are the options for creating a table? (Choose three.)",
+"options": ["Extend a table", "Use API calls", "Link to external tables", "Run import jobs", "Create a table from scratch", "Create a table from a template", "Upload a spreadsheet"],
+"answer": ["Extend a table", "Create a table from scratch", "Upload a spreadsheet"]
+},
+{
+"question": "An application called My App has a table, MyAppTable, with this Application Access configuration: Accessible from: All application scopes, Can read: Selected, Can delete: Not selected, Allow configuration: Selected. Which of the following is true based on this configuration?",
+"options": ["An application developer working in another privately scoped application can write a Business Rule for the MyAppTable table which successfully deletes all records from the MyAppTable table", "Any Application developer can write a Business Rule which successfully deletes all records from the MyAppTable", "An application developer working in the My App scope can write a Business Rule for the MyAppTable table which successfully deletes all records from the MyAppTable table", "No Business Rule can be written which successfully deletes all records from the MyAppTable table"],
+"answer": "An application developer working in the My App scope can write a Business Rule for the MyAppTable table which successfully deletes all records from the MyAppTable table"
+},
+{
+"question": "Identify the ways an application can respond to an Event generated by the gs.eventQueue() method: (Choose two.)",
+"options": ["Scheduled Script Execution (Scheduled Job)", "Email Notification", "Ul Policy", "Script Action", "Client Script"],
+"answer": ["Email Notification", "Script Action"]
+},
+{
+"question": "Which method can be used to install an application on a ServiceNow instance? (Choose three.)",
+"options": ["Import an application from an XML file.", "Use the 'Install' button on the application record.", "Download from Stack Overflow.", "Download and install a third-party application from the ServiceNow Store.", "Install from the Google Play Store.", "Install an application from the Application Repository."],
+"answer": ["Import an application from an XML file.", "Download and install a third-party application from the ServiceNow Store.", "Install an application from the Application Repository."]
+},
+{
+"question": "Which one of the following database operations cannot be controlled with Application Access?",
+"options": ["Query", "Create", "Delete", "Update"],
+"answer": "Query"
+},
+{
+"question": "Which business requirements and process(es) should be documented as part of the application development plan? (Choose four.)",
+"options": ["Data input/output", "Business problem", "Database capacity", "Project schedule", "Available licenses", "Users/stakeholders", "Process steps"],
+"answer": ["Data input/output", "Users/stakeholders", "Process steps", "Business problem"]
+},
+{
+"question": "Which one of the following database operations can be controlled with Application Access? (Choose two.)",
+"options": ["Delete", "Update", "Create", "Query"],
+"answer": ["Create", "Update"]
+},
+{
+"question": "How is access to Application Menus and Modules controlled?",
+"options": ["Application Rules", "Client Scripts", "Access Control", "Roles"],
+"answer": "Roles"
+}
 ];
 
 // OTHER MCQ SET 1 (Original data split - Part 1)
