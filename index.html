@@ -16,6 +16,8 @@
     /* Deep Navy Theme */
     --bg-gradient-start: #0f172a; /* Slate 900 */
     --bg-gradient-end: #1e293b;   /* Slate 800 */
+    --card-bg: #1e293b;
+    --card-hover: #334155;
     
     /* ServiceNow Brand Colors */
     --brand-green: #81B5A1;       /* The requested ServiceNow Green */
@@ -99,27 +101,26 @@ p.sub-head { color: var(--text-secondary); margin-bottom: 45px; font-size: 16px;
 
 @media (min-width: 768px) {
     .list-view { grid-template-columns: 1fr 1fr; }
-    .list-item:last-child { grid-column: 1 / -1; }
+    .list-item:last-child { grid-column: auto; } /* Removed span to keep grid consistent */
 }
 
 .list-item {
-    background: rgba(15, 23, 42, 0.6); /* Slight transparency */
+    background: var(--bg-gradient-start);
     padding: 20px 25px;
     border-radius: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     border-left: 5px solid var(--brand-green); 
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
-    border-left-width: 5px; /* Ensure specificity */
 }
 
 .list-item:hover { 
     transform: translateY(-4px); 
-    background: rgba(30, 41, 59, 0.8); 
-    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+    background: var(--card-hover); 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
     border-color: var(--brand-green);
 }
 
@@ -128,7 +129,7 @@ p.sub-head { color: var(--text-secondary); margin-bottom: 45px; font-size: 16px;
 .list-info p { margin: 4px 0 0 0; font-size: 13px; color: var(--text-secondary); }
 
 .start-btn {
-    padding: 10px 24px;
+    padding: 8px 24px;
     background: linear-gradient(135deg, var(--brand-green), var(--brand-green-hover));
     color: #fff;
     border: none;
@@ -170,7 +171,6 @@ p.sub-head { color: var(--text-secondary); margin-bottom: 45px; font-size: 16px;
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #fff;
 }
 
 /* Icons */
@@ -549,29 +549,29 @@ input[type="checkbox"] { accent-color: var(--brand-green); transform: scale(1.3)
         </div>
     </div>
 
-    <!-- OTHER MCQS SECTION -->
-    <h2 class="section-title">Other MCQs</h2>
+    <!-- OTHER RESOURCES SECTION -->
+    <h2 class="section-title">Other Resources</h2>
     <div class="list-view">
         <div class="list-item">
             <div class="list-info">
-                <h3>Set 1</h3>
-                <p>30 Questions</p>
+                <h3>Other MCQs</h3>
+                <p>25 Questions</p>
             </div>
-            <button class="start-btn" onclick="startQuiz('other1')">Start</button>
+            <button class="start-btn" onclick="startQuiz('other')">Start</button>
         </div>
-
+        
         <div class="list-item">
             <div class="list-info">
-                <h3>Set 2</h3>
-                <p>30 Questions</p>
+                <h3>Udemy Dumps</h3>
+                <p>17 Questions</p>
             </div>
-            <button class="start-btn" onclick="startQuiz('other2')">Start</button>
+            <button class="start-btn" onclick="startQuiz('udemy')">Start</button>
         </div>
 
-        <div class="list-item" style="border-left-color: #fff;">
+        <div class="list-item" style="border-left-color: #fff; grid-column: 1 / -1;">
             <div class="list-info">
-                <h3 style="color:#ffffff;">Study All Other Sets</h3>
-                <p>Set 1 & Set 2 with Answers</p>
+                <h3 style="color:#ffffff;">Study Other Resources</h3>
+                <p>View Other MCQs & Udemy Dumps</p>
             </div>
             <button class="start-btn" style="background: #334155; box-shadow:none; color:#ccc;" onclick="startOtherStudyMode()">View</button>
         </div>
@@ -820,656 +820,154 @@ const mock3Data = [
 {"numb": 45, "question": "Which type of actions can be included in a flow in Flow Designer?", "options": ["Script actions", "Record updates", "Email notifications", "All of the above"], "answer": "All of the above"}
 ];
 
-// OTHER MCQ SET 1 (Original data split - Part 1)
-const otherMcqSet1Data = [
-{
-"question": "How can a developer extract data from the response body after calling a REST web service?",
-"options": [
-"Use the Convert Response Body wizard to translate the response into an object",
-"Use the XMLDocument2 Script include to parse the XML",
-"Click the Convert Response Body button to convert the response",
-"Use the XMLDocument2 API to extract data from XML formatted responses",
-"Use the JSON API to convert JSON formatted responsers to a JavaScript object"
-],
-"answer": [
-"Use the XMLDocument2 API to extract data from XML formatted responses",
-"Use the JSON API to convert JSON formatted responsers to a JavaScript object"
-]
-},
-{
-"question": "What are the benefits of storing the majority of an Application's server-side script logic in a Script Include? (a) faster execution (b) only run when called (c) hidden when installed from Store (d) only one place to edit",
-"options": [
-"a, b, and d",
-"a, b, c, and d",
-"b, c, and d",
-"a, b, and c"
-],
-"answer": "b, c, and d"
-},
-{
-"question": "When troubleshooting and debugging notifications, where do you navigate to see if an email was sent in response to an event?",
-"options": [
-"System Logs Events",
-"System Logs > Emails",
-"System Logs Push Notifications",
-"System Logs ICE Logs"
-],
-"answer": "System Logs > Emails"
-},
-{
-"question": "Identify the way(s) an application can respond to an Event generated by the gs.eventQueue() method. (a) Script Action (b) Scheduled Job (c) UI Policy (d) Email Notification",
-"options": [
-"b and c",
-"a and d",
-"a and c"
-],
-"answer": "a and d"
-},
-{
-"question": "Which of the following is NOT a Flow Designer feature?",
-"options": [
-"Run a flow from a Catalog item",
-"Call a flow from another flow or subflow.",
-"Add stages to a flow",
-"Test a flow using the \"Run as\" feature"
-],
-"answer": "Test a flow using the \"Run as\" feature"
-},
-{
-"question": "What is the purpose of the coalesce field when importing data?",
-"options": [
-"If a match is not found, the existing record is updated",
-"To determine if a record matches an existing record or is a new record",
-"To identify and merge duplicate records",
-"When a match is found, a new record is inserted"
-],
-"answer": "To determine if a record matches an existing record or is a new record"
-},
-{
-"question": "If you create a SOAP Message what syntax indicates a variable to pass when the function is called?",
-"options": [
-"current variable name",
-"$(variable_name)",
-"<variable name > do?WSDL",
-"<variable name>"
-],
-"answer": "$(variable_name)"
-},
-{
-"question": "Which of the following is NOT a way to install an application on a ServiceNow instance?",
-"options": [
-"Install an application from the Application Repository",
-"Download and install an application from the ServiceNow Share web site",
-"Download and install a third-party application from the ServiceNow Store",
-"Select the Copy button on the application record"
-],
-"answer": "Select the Copy button on the application record"
-},
-{
-"question": "Which of the following actions is not supported by Studio?",
-"options": [
-"Format code indetation with JS Beautify",
-"Enable context options to modify data",
-"Download only the required session logs"
-],
-"answer": "Download only the required session logs"
-},
-{
-"question": "Using Custom UI test step in Automated Test Framework, which of the following is NOT a testable page component?",
-"options": [
-"Buttons",
-"UI controls",
-"UI pages",
-"Form field values"
-],
-"answer": "Form field values"
-},
-{
-"question": "Which module is used to access the knowledge bases which are available to you?",
-"options": [
-"Knowledge > Home",
-"Self Service > Knowledge",
-"Knowledge > All",
-"Knowledge > Knowledge Bases",
-"Knowledge > Overview"
-],
-"answer": "Self Service > Knowledge"
-},
-{
-"question": "Flow Designer supports variable data types to store record data and complex data. Which of the following are supported variable data types? (Choose three.)",
-"options": [
-"Choice data type",
-"Array Reference data type",
-"Integer data type",
-"Freedom data type",
-"Array Boolean data type"
-],
-"answer": [
-"Choice data type",
-"Integer data type",
-"Array Boolean data type"
-]
-},
-{
-"question": "What type of user (persona) has clearly defined paths and workflows in the platform and have one or more roles?",
-"options": [
-"Workflow User",
-"Request Fulfiller",
-"ITSM User",
-"Approving Manager",
-"Process User"
-],
-"answer": "Process User"
-},
-{
-"question": "Which module would you use to customize your instances banner image, text and colors?",
-"options": [
-"System UI > UI Pages > Branding",
-"Service Portal > Portals > Branding",
-"System Properties> Basic Configuration UI16",
-"System Properties > Branding",
-"Homepage Admin > Pages > Branding"
-],
-"answer": "System Properties> Basic Configuration UI16"
-},
-{
-"question": "Which one of the following returns true if the currently logged in user has the admin role in a server side script?",
-"options": [
-"g_form.hasRoleExactly('admin')",
-"gs.hasRole('admin')",
-"g_form.hasRole('admin')",
-"gs.hasRoleExactly('admin')"
-],
-"answer": "gs.hasRole('admin')"
-},
-{
-"question": "Which of the following writes a message to the system log but NOT to the syslog table unless debug has been activated?",
-"options": [
-"gs.info(\"Hello World\")",
-"gs.print(\"Hello World\")",
-"gs.log(\"Hello World\")"
-],
-"answer": "gs.print(\"Hello World\")"
-},
-{
-"question": "How do I make my accept solution widget conditional on page load in Service Portal?",
-"options": [
-"Use ngShow",
-"Use ngApp",
-"Use ng-if"
-],
-"answer": "Use ng-if"
-},
-{
-"question": "What is true about homepages on mobile?",
-"options": [
-"Same as desktop homepages without the delete option",
-"There are no homepage on mobile",
-"Same as desktop homepages in every way",
-"Same as desktop homepages with delete option"
-],
-"answer": "There are no homepage on mobile"
-},
-{
-"question": "What does the code search feature do in the studio? (choose 3)",
-"options": [
-"Searching in business rule",
-"Search from a list of applications",
-"Searching in all application",
-"Searching in your application"
-],
-"answer": [
-"Searching in business rule",
-"Searching in all application",
-"Searching in your application"
-]
-},
-{
-"question": "In what order are ServiceNow Access Controls evaluated?",
-"options": [
-"table, record",
-"field, table",
-"table, field",
-"record, field"
-],
-"answer": "table, field"
-},
-{
-"question": "Which of the following is NOT a type of authentication used by REST APIs? (choose 2)",
-"options": [
-"JDBC",
-"OAuth 2.0",
-"CIM",
-"Mutual authentication using protocol profiles",
-"Basic Auth"
-],
-"answer": [
-"JDBC",
-"CIM"
-]
-},
-{
-"question": "What are the 2 core base tables from which all other tables are extended in ServiceNow?",
-"options": [
-"task and cmdb_model",
-"incident and cmdb ci",
-"task and cmdb",
-"incident and cmdb_rel_ci"
-],
-"answer": "task and cmdb"
-},
-{
-"question": "As it relates ServiceNow reporting, which of the following statements describes what a metric can do?",
-"options": [
-"A metric is a comparative measurement used to report the effectiveness of workflows and SLAS",
-"A metric is a report gauge used on homepage to display real-time data",
-"A metric is used to measure and evaluate the effectiveness of IT service management processes",
-"A metric is a time measurement used to report the effectiveness of workflows and SLAs"
-],
-"answer": "A metric is used to measure and evaluate the effectiveness of IT service management processes"
-},
-{
-"question": "Which one of the following is NOT a GlideUser (g* user) method?",
-"options": [
-"getFullName()",
-"username()",
-"hasRoleExactly()",
-"hasRole()"
-],
-"answer": "username()"
-},
-{
-"question": "Which of the following are NOT methods from the Glide Record API? (choose 2)",
-"options": [
-"query()",
-"addOrQuery()",
-"addQuery()",
-"addAndQuery()",
-"addEncodedQuery()"
-],
-"answer": [
-"addOrQuery()",
-"addAndQuery()"
-]
-},
-{
-"question": "Which API provides methods to translate text into multiple languages in real life?",
-"options": [
-"Dynamic Translation",
-"Genius Translation",
-"Dynamic Result Answer",
-"Genius Result Answer"
-],
-"answer": "Dynamic Translation"
-},
-{
-"question": "How are flow variables access in the flow designer data panel?",
-"options": [
-"Data pills",
-"Newly generated icons",
-"Scratchpad variables",
-"New tabs"
-],
-"answer": "Data pills"
-},
-{
-"question": "When debugging a script a developer can log breakpoints... which system property must be set to true to enable log points?",
-"options": [
-"glide.debugger.log.ui",
-"glide.ui.js_can_debug",
-"glide.debug.log_point",
-"com.glide.index_suggestion.debug"
-],
-"answer": "glide.debug.log_point"
-},
-{
-"question": "Which of the following modules enables security rule debugging?",
-"options": [
-"System Security > Session Debug Debug Security Rules",
-"System Diagnostics Session Debug Debug Security Rules",
-"System Diagnostics Debugging > Debug Security Rules",
-"Access Control > Debugging > Debug Security Rules",
-"System Security > Debugging > Debug Security Rules"
-],
-"answer": "System Security > Debugging > Debug Security Rules"
-},
-{
-"question": "Which of the following would not be good fit for an application to run on the ServiceNow instance?",
-"options": [
-"Facilities Management application",
-"Virtual Reality Gaming application",
-"A meeting room scheduling application",
-"Billing Cost Management application"
-],
-"answer": "Virtual Reality Gaming application"
-}
+// OTHER MCQ DATA (Combined into single array)
+const otherMcqFinalData = [
+  {
+    "question": "Which module is used to access the knowledge bases available to you?",
+    "options": ["Knowledge > Home", "Self Service > Knowledge", "Knowledge > All", "Knowledge > Knowledge Bases"],
+    "answer": "Self Service > Knowledge"
+  },
+  {
+    "question": "Which of the following is NOT a Flow Designer feature?",
+    "options": ["Run a flow from a Catalog item", "Call a flow from another flow or subflow", "Test a flow using the 'Run as' feature", "Use Delegated Developer"],
+    "answer": "Test a flow using the 'Run as' feature"
+  },
+  {
+    "question": "What is the purpose of the coalesce field when importing data?",
+    "options": ["If a match is not found, the existing record is updated", "To determine if a record matches an existing record or is a new record", "To identify and merge duplicate records", "When a match is found, a new record is inserted"],
+    "answer": "To determine if a record matches an existing record or is a new record"
+  },
+  {
+    "question": "Which module would you use to customize your instance banner image, text, and colors?",
+    "options": ["System UI > UI Pages > Branding", "Service Portal > Portals > Branding", "System Properties > Basic Configuration UI16", "System Properties > Branding"],
+    "answer": "System Properties > Basic Configuration UI16"
+  },
+  {
+    "question": "Which one of the following returns true if the currently logged-in user has the admin role (server-side)?",
+    "options": ["g_form.hasRoleExactly('admin')", "gs.hasRole('admin')", "g_form.hasRole('admin')", "gs.hasRoleExactly('admin')"],
+    "answer": "gs.hasRole('admin')"
+  },
+  {
+    "question": "What is true about homepages on mobile?",
+    "options": ["Same as desktop homepages without the delete option", "There are no homepage on mobile", "Same as desktop homepages in every way", "Same as desktop homepages with delete option"],
+    "answer": "There are no homepage on mobile"
+  },
+  {
+    "question": "What does the Code Search feature do in Studio? (Choose 3)",
+    "options": ["Searching in business rule", "Search from a list of applications", "Searching in all application", "Searching in your application"],
+    "answer": ["Searching in business rule", "Searching in all application", "Searching in your application"]
+  },
+  {
+    "question": "What are the two core base tables from which all other tables are extended?",
+    "options": ["task and cmdb_model", "incident and cmdb ci", "task and cmdb", "incident and cmdb_rel_ci"],
+    "answer": "task and cmdb"
+  },
+  {
+    "question": "Which one of the following is NOT a GlideUser method?",
+    "options": ["getFullName()", "username()", "hasRoleExactly()", "hasRole()"],
+    "answer": "username()"
+  },
+  {
+    "question": "How are flow variables accessed in Flow Designer?",
+    "options": ["Data pills", "Newly generated icons", "Scratchpad variables", "New tabs"],
+    "answer": "Data pills"
+  },
+  {
+    "question": "Which of the following would NOT be a good fit for an application on ServiceNow?",
+    "options": ["Facilities Management application", "Virtual Reality Gaming application", "A meeting room scheduling application", "Billing Cost Management application"],
+    "answer": "Virtual Reality Gaming application"
+  },
+  {
+    "question": "When creating an application via Guided Application Creator, which are NOT user experience options? (Choose 2)",
+    "options": ["Portal", "Workplace", "Mobile", "Classic"],
+    "answer": ["Portal", "Workplace"]
+  },
+  {
+    "question": "Which of the following is NOT a report type in ServiceNow?",
+    "options": ["Trend", "Line", "List", "Chart"],
+    "answer": "Chart"
+  },
+  {
+    "question": "Which scripts do NOT always run on the server side?",
+    "options": ["Script Includes", "Business Rules", "UI Action", "Script Action"],
+    "answer": "UI Action"
+  },
+  {
+    "question": "What are the UX options available in Guided Application Creator? (Choose 2)",
+    "options": ["Classic", "Desktop", "Tablet", "Workspace", "Mobile"],
+    "answer": ["Classic", "Mobile"]
+  },
+  {
+    "question": "Which one best describes what a Flow is?",
+    "options": ["A sequence of actions to automate processes on the platform", "A script that defines the steps to automate processes on the platform", "A sequence of steps to automate processes on the platform", "A sequence of activities to automate processes on the platform"],
+    "answer": "A sequence of actions to automate processes on the platform"
+  },
+  {
+    "question": "Which method is used to emulate mobile for testing?",
+    "options": ["$m.do", "$t.do", "?m.do", "$tablet.do"],
+    "answer": "?m.do"
+  },
+  {
+    "question": "Which role is required to access Guided Application Creator?",
+    "options": ["sn_developer.app_creator", "sn_app_creator.app_creator", "sn_gac.app_creator", "sn_g_app_creator.app_creator"],
+    "answer": "sn_g_app_creator.app_creator"
+  },
+  {
+    "question": "Which of the following statements must evaluate to true to grant access to a table record?",
+    "options": ["a, b, c", "a and c", "a and b", "a, b, c and d"],
+    "answer": "a, b, c"
+  },
+  {
+    "question": "Which option in Table Configuration allows a table to be extended?",
+    "options": ["Extended By", "Extends", "Extensible", "Can be extended"],
+    "answer": "Extensible"
+  },
+  {
+    "question": "What is NOT true about email notifications?",
+    "options": ["What", "When", "Who", "How"],
+    "answer": "How"
+  },
+  {
+    "question": "Which API translates text into multiple languages?",
+    "options": ["Dynamic Translation", "Genius Translation", "Dynamic Result Answer", "Genius Result Answer"],
+    "answer": "Dynamic Translation"
+  },
+  {
+    "question": "How is access to Application menus and modules controlled?",
+    "options": ["Client Scripts", "Roles", "Application Rules", "Access controls"],
+    "answer": "Roles"
+  },
+  {
+    "question": "How can developers specify which page opens after Record Producer submission?",
+    "options": ["Create an application property to store the URL", "Configure the page in the Module that opens the Record Producer UI", "Write an after Business Rule script for the Record Producer's table: window.redirect", "Write a script in the Record Producer's Script field: producer.redirect="],
+    "answer": "Write a script in the Record Producer's Script field: producer.redirect="
+  },
+  {
+    "question": "What are the ways to designate data tables in Guided Application Creator? (Choose 3)",
+    "options": ["Upload an existing PDF", "Create a new table on the platform", "Use a freeform database", "Upload an existing spreadsheet", "Use an existing table on the platform", "Upload an existing word processing document"],
+    "answer": ["Create a new table on the platform", "Upload an existing spreadsheet", "Use an existing table on the platform"]
+  }
 ];
 
-// OTHER MCQ SET 2 (Original data split - Part 2)
-const otherMcqSet2Data = [
-{
-"question": "Which of the following are steps in the generalized process for working with events? (choose 3)",
-"options": [
-"Create a Scheduled Script Execution",
-"Respond to the event",
-"Write a Business Rule",
-"Generate the event",
-"Add an event to the Event Registry"
-],
-"answer": [
-"Respond to the event",
-"Generate the event",
-"Add an event to the Event Registry"
-]
-},
-{
-"question": "Which Script Debugger feature helps filter debugging searches to quickly narrow down script problems?",
-"options": [
-"Script Filter",
-"Script Tracer",
-"Script Search",
-"Session Tracer"
-],
-"answer": "Script Tracer"
-},
-{
-"question": "When creating an application via Guided Application Creator, which of the following is NOT a user experience options? (choose 2)",
-"options": [
-"Portal",
-"Workplace",
-"Mobile",
-"Classic"
-],
-"answer": [
-"Portal",
-"Workplace"
-]
-},
-{
-"question": "Which of the following is NOT report type in ServiceNow reports?",
-"options": [
-"Trend",
-"Line",
-"List",
-"Chart"
-],
-"answer": "Chart"
-},
-{
-"question": "When managing global application files, you can NOT",
-"options": [
-"Move an application file in global applications",
-"Move an application file between global applications",
-"Move application files into or out of scoped application",
-"Add files from global scope to a global application"
-],
-"answer": "Move application files into or out of scoped application"
-},
-{
-"question": "Which of the following objects does a before business rule have access to?",
-"options": [
-"previous",
-"All the above",
-"current",
-"GlideRecord"
-],
-"answer": "All the above"
-},
-{
-"question": "What one of the following is the correct syntax for adding dynamic content to a notification's HTML message field?",
-"options": [
-"$(current.short_description]",
-"current.short_description",
-"${current.short_description}",
-"$short_description",
-"${short_description}"
-],
-"answer": "${short_description}"
-},
-{
-"question": "When ServiceNow receives an inbound email it attempts to match the sender to a user record. Which one of the following is NOT true?",
-"options": [
-"If automatic user creation is disabled, the Guest user is impersonated.",
-"If a match is found, the user is impersonated for the execution of Inbound Actions",
-"Inbound Actions scripts can reference the user using methods such as gs.getUserName()",
-"If no match is found the email is sent to the Inbox Junk Folder"
-],
-"answer": "If no match is found the email is sent to the Inbox Junk Folder"
-},
-{
-"question": "Which of the following is NOT a type of annotation?",
-"options": [
-"Info Box Red",
-"Text",
-"Line Separator",
-"Info Box Yellow",
-"Info Box Blue"
-],
-"answer": "Info Box Yellow"
-},
-{
-"question": "What is not true about email notifications? (select one)",
-"options": [
-"What",
-"When",
-"Who",
-"How"
-],
-"answer": "How"
-},
-{
-"question": "Which of the following pops out a special field messages?",
-"options": [
-"g_form.addErrorMessage()",
-"g_form.showFieldMsg()",
-"g_form.showFieldMessage()",
-"g_form.addinfoMessage()",
-"g_form.addFieldMessage()"
-],
-"answer": "g_form.showFieldMsg()"
-},
-{
-"question": "Which of the following scripts do not always run on the server side?",
-"options": [
-"Script Includes",
-"Business Rules",
-"UI Action",
-"Script Action"
-],
-"answer": "UI Action"
-},
-{
-"question": "What are the UX (user experience) options available in Guided Application Creator? (choose 2)",
-"options": [
-"Classic",
-"Desktop",
-"Tablet",
-"Workspace",
-"Mobile"
-],
-"answer": [
-"Classic",
-"Mobile"
-]
-},
-{
-"question": "Which one of the following best describes what a flow is?",
-"options": [
-"A sequence of actions to automate processes on the platform",
-"A script that defines the steps to automate processes on the platform",
-"A sequence of steps to automate processes on the platform",
-"A sequence of activities to automate processes on the platform"
-],
-"answer": "A sequence of actions to automate processes on the platform"
-},
-{
-"question": "Which method is used in emulating mobile for testing?",
-"options": [
-"$m.do",
-"$t.do",
-"?m.do",
-"$tablet.do"
-],
-"answer": "?m.do"
-},
-{
-"question": "Which role is required to access Guide Application Creator?",
-"options": [
-"sn_developer.app_creator",
-"sn_app_creator.app_creator",
-"sn_gac.app_creator",
-"sn_g_app_creator.app_creator"
-],
-"answer": "sn_g_app_creator.app_creator"
-},
-{
-"question": "Which of the following statements must evaluate to true to grant a user access to application table's record? (a) Conditions (b) Scripts (c) Roles (d) Other matching ACs",
-"options": [
-"a, b, c",
-"a and c",
-"a and b",
-"a, b, c and d"
-],
-"answer": "a, b, c"
-},
-{
-"question": "While debugging security rules, what does the blue color code indicate?",
-"options": [
-"Indicates the ACL is already in the cache and does not need to be re-evaluated",
-"Access denied",
-"Passed",
-"Access granted",
-"Failed"
-],
-"answer": "Indicates the ACL is already in the cache and does not need to be re-evaluated"
-},
-{
-"question": "The getCurrentDomainID() method is part of which scoped class?",
-"options": [
-"Scoped GlideSession",
-"Scoped domain",
-"ScopedDCMAnager",
-"GlideRecord"
-],
-"answer": "Scoped GlideSession"
-},
-{
-"question": "Which of the below is not a valid state for a scheduled job in ServiceNow instance?",
-"options": [
-"Waiting for Approval",
-"Queued",
-"Error",
-"Ready",
-"Running"
-],
-"answer": "Waiting for Approval"
-},
-{
-"question": "Which of the following variables are NOT available in all Business Rules? (choose 2)",
-"options": [
-"Previous",
-"GlideSystem",
-"g_scratchpad",
-"Current"
-],
-"answer": [
-"Previous",
-"g_scratchpad"
-]
-},
-{
-"question": "What is the main purpose of Integration Hub in ServiceNow?",
-"options": [
-"Activity in workflow designer",
-"to integrate 3rd party applications",
-"Enables execution of third-party APIs as part of a flow when a specific event occurs in ServiceNow",
-"Custom application from ServiceNow store used for importing data into ServiceNow"
-],
-"answer": "to integrate 3rd party applications"
-},
-{
-"question": "Which protects applications by identifying and restricting access to application files and data?",
-"options": [
-"Application Scope",
-"Roles",
-"ACLs"
-],
-"answer": "Application Scope"
-},
-{
-"question": "Which of the following can be used to place a report on a Homepage?",
-"options": [
-"Gadget",
-"Gauge",
-"Tag",
-"Catalog"
-],
-"answer": "Gauge"
-},
-{
-"question": "An application has a table named MyTable with the following three fields: field1, field2, field3. Table.none is set for READ for the Admin and Itil roles. Table.field3 is set for the READ by the Admin role only. What with the Itil role be able to read?",
-"options": [
-"field1, field3",
-"field1, field2, field3",
-"field2, field3",
-"field1, field2"
-],
-"answer": "field1, field2"
-},
-{
-"question": "The option in Table configuration that allows this table to be extended from?",
-"options": [
-"Extended By",
-"Extends",
-"Extensible",
-"Can be extended"
-],
-"answer": "Extensible"
-},
-{
-"question": "How can a developer extract data from the response body after calling a REST web service? (choose 2)",
-"options": [
-"Use the Convert Response Body wizard to translate the response into an object",
-"Use the XMLDocument2 Script Include to parse the XML",
-"Click the Convert Response Body button to convert the response",
-"Use the XMLDocument2 API to extract data from XML formatted responses",
-"Use the JSON API to convert JSON formatted responses to a JavaScript object"
-],
-"answer": [
-"Use the XMLDocument2 API to extract data from XML formatted responses",
-"Use the JSON API to convert JSON formatted responses to a JavaScript object"
-]
-},
-{
-"question": "Which of the following statements is true for managing applications purchased from the Store?",
-"options": [
-"Applications that belong to other organizations can be changed",
-"Applications that belong to other organizations can be customized",
-"Customizations cannot revert back to the base system application",
-"There are separate entitlements for application-customizations"
-],
-"answer": "Customizations cannot revert back to the base system application"
-},
-{
-"question": "How is access to Application menus and modules controlled?",
-"options": [
-"Client Scripts",
-"Roles",
-"Application Rules",
-"Access controls"
-],
-"answer": "Roles"
-},
-{
-"question": "Application developers can specify which ServiceNow page a user sees after submitting a new record using the Record Producer UI. How is the page specified?",
-"options": [
-"Create an application property to store the URL",
-"Configure the page in the Module that opens the Record Producer UI",
-"Write an after Business Rule script for the Record Producer's table: window.redirect",
-"Write a script in the Record Producer's Script field: producer.redirect="
-],
-"answer": "Write a script in the Record Producer's Script field: producer.redirect="
-}
+// UDEMY DUMPS DATA (17 Questions)
+const udemyData = [
+  { "question": "Which objects can be used in Inbound Action scripts?", "options": ["Event", "Producer", "Email", "Current", "Previous"], "answer": ["Event", "Email", "Current"] },
+  { "question": "What are some of the benefits of extending an existing table such as the Task table when creating a new application?", "options": ["You can repurpose existing fields by simply changing the label.", "Use existing fields with no modifications.", "Existing logic from the parent table will be automatically applied to the new table.", "All of the parent table records are copied to the new table."], "answer": ["You can repurpose existing fields by simply changing the label.", "Use existing fields with no modifications.", "Existing logic from the parent table will be automatically applied to the new table."] },
+  { "question": "Which of the following statements is true for the Form Designer? (Choose three.)", "options": ["To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.", "To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.", "To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.", "To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field."], "answer": ["To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.", "To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.", "To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field."] },
+  { "question": "Which of the following features are available to Global applications? (Choose three.)", "options": ["Automated Test Framework", "Delegated Development", "Source Control", "Flow Designer"], "answer": ["Automated Test Framework", "Source Control", "Flow Designer"] },
+  { "question": "Which of the following statements is true for managing applications purchased from the Store?", "options": ["Applications that belong to other organizations can be changed", "Applications that belong to other organizations can be customized", "Customizations cannot revert back to the base system application", "There are separate entitlements for application-customizations"], "answer": "Customizations cannot revert back to the base system application" },
+  { "question": "Which of the following variables are NOT available in all Business Rules? (Select All That Apply)", "options": ["current", "previous", "GlideSystem", "g_scratchpad"], "answer": ["previous", "g_scratchpad"] },
+  { "question": "Which of the following accurately describes the features of a Record Producer in ServiceNow? (Choose two.)", "options": ["A Record Producer always inserts records into the sc_req_item table by default", "Field behavior on the Record Producer form can be controlled using Catalog Client Scripts", "Record Producers expose the full schema of the target table to the end user", "Descriptive prompts can be configured to guide users instead of showing technical field labels"], "answer": ["Field behavior on the Record Producer form can be controlled using Catalog Client Scripts", "Descriptive prompts can be configured to guide users instead of showing technical field labels"] },
+  { "question": "For Application Access there is a configuration option called Allow access to this table via web services. Which one of the following statements is true when this option is selected?", "options": ["This option restricts the ability to delete records via web services but records can always be read", "Even when not selected, users with the correct permissions can use web services to access the table's records", "This option restricts access only to SOAP web services but does not apply to REST", "The user performing the query via web services must have the correct permissions to access the table's records"], "answer": "The user performing the query via web services must have the correct permissions to access the table's records" },
+  { "question": "Which ServiceNow utility provides a graphical view of table relationships?", "options": ["Schema Map", "Dependency View", "Business Service Map", "CI Map"], "answer": "Schema Map" },
+  { "question": "What is the primary purpose of the Application Picker?", "options": ["Select an application to run", "Select an application as a favorite", "Choose an application to edit and set the Application Scope", "Choose an application to download"], "answer": "Choose an application to edit and set the Application Scope" },
+  { "question": "Which method is used to check if a user has a specific role in a Client Script?", "options": ["g_user.hasRole()", "gs.hasRole()", "g_form.hasRole()", "current.hasRole()"], "answer": "g_user.hasRole()" },
+  { "question": "When configuring an Email Notification, what can trigger the notification? (Choose two.)", "options": ["Record insertion or update", "Event generation", "User login", "Scheduled job completion"], "answer": ["Record insertion or update", "Event generation"] },
+  { "question": "Which component in Flow Designer is used to ask for approval?", "options": ["Action", "Trigger", "Flow Logic", "Subflow"], "answer": "Action" },
+  { "question": "What is the function of the 'Display' Business Rule?", "options": ["Runs before the form is loaded to pass server-side data to the client", "Runs after the form is submitted", "Runs asynchronously to update related records", "Runs when a record is deleted"], "answer": "Runs before the form is loaded to pass server-side data to the client" },
+  { "question": "Which of the following is true about Scoped Applications?", "options": ["They effectively sandboxed and do not affect the global scope by default", "They have full access to global scope scripts without restriction", "They cannot use Flow Designer", "They must be deployed via Update Sets only"], "answer": "They effectively sandboxed and do not affect the global scope by default" },
+  { "question": "What is the default protection policy for a Script Include in a scoped application?", "options": ["Read-only", "Protected", "None", "Public"], "answer": "None" },
+  { "question": "Which API is used to perform server-side database operations in a scoped application?", "options": ["GlideRecord", "GlideSystem", "GlideAggregate", "All of the above"], "answer": "All of the above" }
 ];
 
 // ================= LOGIC SECTION =================
@@ -1499,8 +997,8 @@ function startQuiz(testId) {
     if(testId === 'mock1') currentQuizData = [...mock1Data];
     else if(testId === 'mock2') currentQuizData = [...mock2Data];
     else if(testId === 'mock3') currentQuizData = [...mock3Data];
-    else if(testId === 'other1') currentQuizData = [...otherMcqSet1Data];
-    else if(testId === 'other2') currentQuizData = [...otherMcqSet2Data];
+    else if(testId === 'other') currentQuizData = [...otherMcqFinalData];
+    else if(testId === 'udemy') currentQuizData = [...udemyData];
     
     // Explicitly reset locked state for all selected questions
     resetQuestionState(currentQuizData);
@@ -1509,7 +1007,7 @@ function startQuiz(testId) {
     const jumble = document.getElementById('jumble-check').checked;
     if (jumble) {
         // Randomize question order for mocks
-        if(testId.startsWith('mock') || testId === 'other1' || testId === 'other2') {
+        if(testId.startsWith('mock') || testId === 'other' || testId === 'udemy') {
             currentQuizData = currentQuizData.sort(() => Math.random() - 0.5);
         }
         // Randomize options
@@ -1594,7 +1092,7 @@ function startMockStudyMode() {
 }
 
 function startOtherStudyMode() {
-    setupStudyMode([ ...otherMcqSet1Data, ...otherMcqSet2Data ], "Other MCQs Study");
+    setupStudyMode([ ...otherMcqFinalData, ...udemyData ], "Other Resources Study");
 }
 
 function setupStudyMode(data, titleText) {
