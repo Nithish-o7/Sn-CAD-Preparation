@@ -4,7 +4,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ServiceNow CAD Preparation</title>
+<title>ServiceNow CAD Prep</title>
 <!-- Import Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -510,7 +510,7 @@ input[type="checkbox"] { accent-color: var(--brand-green); transform: scale(1.3)
 
 <!-- DASHBOARD VIEW -->
 <div class="container" id="dashboard-view">
-    <h1><span class="brand-green">ServiceNow</span> CAD Preparation</h1>
+    <h1><span class="brand-green">ServiceNow</span> CAD Prep</h1>
     <p class="sub-head">Select a module to begin your training</p>
 
     <!-- MOCK TESTS SECTION -->
@@ -546,34 +546,6 @@ input[type="checkbox"] { accent-color: var(--brand-green); transform: scale(1.3)
                 <p>Questions from Test 1, 2 & 3</p>
             </div>
             <button class="start-btn" style="background: #334155; box-shadow:none; color:#ccc;" onclick="startMockStudyMode()">View</button>
-        </div>
-    </div>
-
-    <!-- OTHER RESOURCES SECTION -->
-    <h2 class="section-title">Other Resources</h2>
-    <div class="list-view">
-        <div class="list-item">
-            <div class="list-info">
-                <h3>Other MCQs</h3>
-                <p>25 Questions</p>
-            </div>
-            <button class="start-btn" onclick="startQuiz('other')">Start</button>
-        </div>
-        
-        <div class="list-item">
-            <div class="list-info">
-                <h3>Udemy Dumps</h3>
-                <p>17 Questions</p>
-            </div>
-            <button class="start-btn" onclick="startQuiz('udemy')">Start</button>
-        </div>
-
-        <div class="list-item" style="border-left-color: #fff; grid-column: 1 / -1;">
-            <div class="list-info">
-                <h3 style="color:#ffffff;">Study Other Resources</h3>
-                <p>View Other MCQs & Udemy Dumps</p>
-            </div>
-            <button class="start-btn" style="background: #334155; box-shadow:none; color:#ccc;" onclick="startOtherStudyMode()">View</button>
         </div>
     </div>
 
@@ -820,156 +792,6 @@ const mock3Data = [
 {"numb": 45, "question": "Which type of actions can be included in a flow in Flow Designer?", "options": ["Script actions", "Record updates", "Email notifications", "All of the above"], "answer": "All of the above"}
 ];
 
-// OTHER MCQ DATA (Combined into single array)
-const otherMcqFinalData = [
-  {
-    "question": "Which module is used to access the knowledge bases available to you?",
-    "options": ["Knowledge > Home", "Self Service > Knowledge", "Knowledge > All", "Knowledge > Knowledge Bases"],
-    "answer": "Self Service > Knowledge"
-  },
-  {
-    "question": "Which of the following is NOT a Flow Designer feature?",
-    "options": ["Run a flow from a Catalog item", "Call a flow from another flow or subflow", "Test a flow using the 'Run as' feature", "Use Delegated Developer"],
-    "answer": "Test a flow using the 'Run as' feature"
-  },
-  {
-    "question": "What is the purpose of the coalesce field when importing data?",
-    "options": ["If a match is not found, the existing record is updated", "To determine if a record matches an existing record or is a new record", "To identify and merge duplicate records", "When a match is found, a new record is inserted"],
-    "answer": "To determine if a record matches an existing record or is a new record"
-  },
-  {
-    "question": "Which module would you use to customize your instance banner image, text, and colors?",
-    "options": ["System UI > UI Pages > Branding", "Service Portal > Portals > Branding", "System Properties > Basic Configuration UI16", "System Properties > Branding"],
-    "answer": "System Properties > Basic Configuration UI16"
-  },
-  {
-    "question": "Which one of the following returns true if the currently logged-in user has the admin role (server-side)?",
-    "options": ["g_form.hasRoleExactly('admin')", "gs.hasRole('admin')", "g_form.hasRole('admin')", "gs.hasRoleExactly('admin')"],
-    "answer": "gs.hasRole('admin')"
-  },
-  {
-    "question": "What is true about homepages on mobile?",
-    "options": ["Same as desktop homepages without the delete option", "There are no homepage on mobile", "Same as desktop homepages in every way", "Same as desktop homepages with delete option"],
-    "answer": "There are no homepage on mobile"
-  },
-  {
-    "question": "What does the Code Search feature do in Studio? (Choose 3)",
-    "options": ["Searching in business rule", "Search from a list of applications", "Searching in all application", "Searching in your application"],
-    "answer": ["Searching in business rule", "Searching in all application", "Searching in your application"]
-  },
-  {
-    "question": "What are the two core base tables from which all other tables are extended?",
-    "options": ["task and cmdb_model", "incident and cmdb ci", "task and cmdb", "incident and cmdb_rel_ci"],
-    "answer": "task and cmdb"
-  },
-  {
-    "question": "Which one of the following is NOT a GlideUser method?",
-    "options": ["getFullName()", "username()", "hasRoleExactly()", "hasRole()"],
-    "answer": "username()"
-  },
-  {
-    "question": "How are flow variables accessed in Flow Designer?",
-    "options": ["Data pills", "Newly generated icons", "Scratchpad variables", "New tabs"],
-    "answer": "Data pills"
-  },
-  {
-    "question": "Which of the following would NOT be a good fit for an application on ServiceNow?",
-    "options": ["Facilities Management application", "Virtual Reality Gaming application", "A meeting room scheduling application", "Billing Cost Management application"],
-    "answer": "Virtual Reality Gaming application"
-  },
-  {
-    "question": "When creating an application via Guided Application Creator, which are NOT user experience options? (Choose 2)",
-    "options": ["Portal", "Workplace", "Mobile", "Classic"],
-    "answer": ["Portal", "Workplace"]
-  },
-  {
-    "question": "Which of the following is NOT a report type in ServiceNow?",
-    "options": ["Trend", "Line", "List", "Chart"],
-    "answer": "Chart"
-  },
-  {
-    "question": "Which scripts do NOT always run on the server side?",
-    "options": ["Script Includes", "Business Rules", "UI Action", "Script Action"],
-    "answer": "UI Action"
-  },
-  {
-    "question": "What are the UX options available in Guided Application Creator? (Choose 2)",
-    "options": ["Classic", "Desktop", "Tablet", "Workspace", "Mobile"],
-    "answer": ["Classic", "Mobile"]
-  },
-  {
-    "question": "Which one best describes what a Flow is?",
-    "options": ["A sequence of actions to automate processes on the platform", "A script that defines the steps to automate processes on the platform", "A sequence of steps to automate processes on the platform", "A sequence of activities to automate processes on the platform"],
-    "answer": "A sequence of actions to automate processes on the platform"
-  },
-  {
-    "question": "Which method is used to emulate mobile for testing?",
-    "options": ["$m.do", "$t.do", "?m.do", "$tablet.do"],
-    "answer": "?m.do"
-  },
-  {
-    "question": "Which role is required to access Guided Application Creator?",
-    "options": ["sn_developer.app_creator", "sn_app_creator.app_creator", "sn_gac.app_creator", "sn_g_app_creator.app_creator"],
-    "answer": "sn_g_app_creator.app_creator"
-  },
-  {
-    "question": "Which of the following statements must evaluate to true to grant access to a table record?",
-    "options": ["a, b, c", "a and c", "a and b", "a, b, c and d"],
-    "answer": "a, b, c"
-  },
-  {
-    "question": "Which option in Table Configuration allows a table to be extended?",
-    "options": ["Extended By", "Extends", "Extensible", "Can be extended"],
-    "answer": "Extensible"
-  },
-  {
-    "question": "What is NOT true about email notifications?",
-    "options": ["What", "When", "Who", "How"],
-    "answer": "How"
-  },
-  {
-    "question": "Which API translates text into multiple languages?",
-    "options": ["Dynamic Translation", "Genius Translation", "Dynamic Result Answer", "Genius Result Answer"],
-    "answer": "Dynamic Translation"
-  },
-  {
-    "question": "How is access to Application menus and modules controlled?",
-    "options": ["Client Scripts", "Roles", "Application Rules", "Access controls"],
-    "answer": "Roles"
-  },
-  {
-    "question": "How can developers specify which page opens after Record Producer submission?",
-    "options": ["Create an application property to store the URL", "Configure the page in the Module that opens the Record Producer UI", "Write an after Business Rule script for the Record Producer's table: window.redirect", "Write a script in the Record Producer's Script field: producer.redirect="],
-    "answer": "Write a script in the Record Producer's Script field: producer.redirect="
-  },
-  {
-    "question": "What are the ways to designate data tables in Guided Application Creator? (Choose 3)",
-    "options": ["Upload an existing PDF", "Create a new table on the platform", "Use a freeform database", "Upload an existing spreadsheet", "Use an existing table on the platform", "Upload an existing word processing document"],
-    "answer": ["Create a new table on the platform", "Upload an existing spreadsheet", "Use an existing table on the platform"]
-  }
-];
-
-// UDEMY DUMPS DATA (17 Questions)
-const udemyData = [
-  { "question": "Which objects can be used in Inbound Action scripts?", "options": ["Event", "Producer", "Email", "Current", "Previous"], "answer": ["Event", "Email", "Current"] },
-  { "question": "What are some of the benefits of extending an existing table such as the Task table when creating a new application?", "options": ["You can repurpose existing fields by simply changing the label.", "Use existing fields with no modifications.", "Existing logic from the parent table will be automatically applied to the new table.", "All of the parent table records are copied to the new table."], "answer": ["You can repurpose existing fields by simply changing the label.", "Use existing fields with no modifications.", "Existing logic from the parent table will be automatically applied to the new table."] },
-  { "question": "Which of the following statements is true for the Form Designer? (Choose three.)", "options": ["To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.", "To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.", "To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.", "To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field."], "answer": ["To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.", "To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.", "To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field."] },
-  { "question": "Which of the following features are available to Global applications? (Choose three.)", "options": ["Automated Test Framework", "Delegated Development", "Source Control", "Flow Designer"], "answer": ["Automated Test Framework", "Source Control", "Flow Designer"] },
-  { "question": "Which of the following statements is true for managing applications purchased from the Store?", "options": ["Applications that belong to other organizations can be changed", "Applications that belong to other organizations can be customized", "Customizations cannot revert back to the base system application", "There are separate entitlements for application-customizations"], "answer": "Customizations cannot revert back to the base system application" },
-  { "question": "Which of the following variables are NOT available in all Business Rules? (Select All That Apply)", "options": ["current", "previous", "GlideSystem", "g_scratchpad"], "answer": ["previous", "g_scratchpad"] },
-  { "question": "Which of the following accurately describes the features of a Record Producer in ServiceNow? (Choose two.)", "options": ["A Record Producer always inserts records into the sc_req_item table by default", "Field behavior on the Record Producer form can be controlled using Catalog Client Scripts", "Record Producers expose the full schema of the target table to the end user", "Descriptive prompts can be configured to guide users instead of showing technical field labels"], "answer": ["Field behavior on the Record Producer form can be controlled using Catalog Client Scripts", "Descriptive prompts can be configured to guide users instead of showing technical field labels"] },
-  { "question": "For Application Access there is a configuration option called Allow access to this table via web services. Which one of the following statements is true when this option is selected?", "options": ["This option restricts the ability to delete records via web services but records can always be read", "Even when not selected, users with the correct permissions can use web services to access the table's records", "This option restricts access only to SOAP web services but does not apply to REST", "The user performing the query via web services must have the correct permissions to access the table's records"], "answer": "The user performing the query via web services must have the correct permissions to access the table's records" },
-  { "question": "Which ServiceNow utility provides a graphical view of table relationships?", "options": ["Schema Map", "Dependency View", "Business Service Map", "CI Map"], "answer": "Schema Map" },
-  { "question": "What is the primary purpose of the Application Picker?", "options": ["Select an application to run", "Select an application as a favorite", "Choose an application to edit and set the Application Scope", "Choose an application to download"], "answer": "Choose an application to edit and set the Application Scope" },
-  { "question": "Which method is used to check if a user has a specific role in a Client Script?", "options": ["g_user.hasRole()", "gs.hasRole()", "g_form.hasRole()", "current.hasRole()"], "answer": "g_user.hasRole()" },
-  { "question": "When configuring an Email Notification, what can trigger the notification? (Choose two.)", "options": ["Record insertion or update", "Event generation", "User login", "Scheduled job completion"], "answer": ["Record insertion or update", "Event generation"] },
-  { "question": "Which component in Flow Designer is used to ask for approval?", "options": ["Action", "Trigger", "Flow Logic", "Subflow"], "answer": "Action" },
-  { "question": "What is the function of the 'Display' Business Rule?", "options": ["Runs before the form is loaded to pass server-side data to the client", "Runs after the form is submitted", "Runs asynchronously to update related records", "Runs when a record is deleted"], "answer": "Runs before the form is loaded to pass server-side data to the client" },
-  { "question": "Which of the following is true about Scoped Applications?", "options": ["They effectively sandboxed and do not affect the global scope by default", "They have full access to global scope scripts without restriction", "They cannot use Flow Designer", "They must be deployed via Update Sets only"], "answer": "They effectively sandboxed and do not affect the global scope by default" },
-  { "question": "What is the default protection policy for a Script Include in a scoped application?", "options": ["Read-only", "Protected", "None", "Public"], "answer": "None" },
-  { "question": "Which API is used to perform server-side database operations in a scoped application?", "options": ["GlideRecord", "GlideSystem", "GlideAggregate", "All of the above"], "answer": "All of the above" }
-];
-
 // ================= LOGIC SECTION =================
 
 let currentQuizData = [];
@@ -997,8 +819,6 @@ function startQuiz(testId) {
     if(testId === 'mock1') currentQuizData = [...mock1Data];
     else if(testId === 'mock2') currentQuizData = [...mock2Data];
     else if(testId === 'mock3') currentQuizData = [...mock3Data];
-    else if(testId === 'other') currentQuizData = [...otherMcqFinalData];
-    else if(testId === 'udemy') currentQuizData = [...udemyData];
     
     // Explicitly reset locked state for all selected questions
     resetQuestionState(currentQuizData);
@@ -1007,7 +827,7 @@ function startQuiz(testId) {
     const jumble = document.getElementById('jumble-check').checked;
     if (jumble) {
         // Randomize question order for mocks
-        if(testId.startsWith('mock') || testId === 'other' || testId === 'udemy') {
+        if(testId.startsWith('mock')) {
             currentQuizData = currentQuizData.sort(() => Math.random() - 0.5);
         }
         // Randomize options
@@ -1088,14 +908,6 @@ function startTimer(duration) {
 
 // STUDY MODE LOGIC
 function startMockStudyMode() {
-    setupStudyMode([ ...mock1Data, ...mock2Data, ...mock3Data ], "Mock Tests Study");
-}
-
-function startOtherStudyMode() {
-    setupStudyMode([ ...otherMcqFinalData, ...udemyData ], "Other Resources Study");
-}
-
-function setupStudyMode(data, titleText) {
     document.getElementById('dashboard-view').classList.add('hidden');
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('study-view').classList.remove('hidden');
@@ -1103,37 +915,56 @@ function setupStudyMode(data, titleText) {
     const container = document.getElementById('study-content');
     container.innerHTML = '';
     
-    data.forEach((q, index) => {
-        const qBlock = document.createElement('div');
-        qBlock.className = 'study-question-block';
-        qBlock.setAttribute('data-question-text', q.question.toLowerCase());
+    const testSets = [
+        { title: "Mock Test 1", data: mock1Data },
+        { title: "Mock Test 2", data: mock2Data },
+        { title: "Mock Test 3", data: mock3Data }
+    ];
 
-        const title = document.createElement('h3');
-        title.className = 'study-question-title';
-        title.innerHTML = `Q${index + 1}. ${q.question}`;
+    let globalIndex = 0;
 
-        if(Array.isArray(q.answer)) {
-            title.innerHTML += `<br><span style="font-size:0.8em; color:var(--brand-green);">(Select all that apply)</span>`;
-        }
+    testSets.forEach(set => {
+        const header = document.createElement('h2');
+        header.style.color = 'var(--brand-green)';
+        header.style.margin = '40px 0 20px 0';
+        header.style.borderBottom = '2px dashed var(--border-color)';
+        header.style.paddingBottom = '10px';
+        header.innerText = set.title;
+        container.appendChild(header);
 
-        qBlock.appendChild(title);
+        set.data.forEach((q) => {
+            globalIndex++;
+            const qBlock = document.createElement('div');
+            qBlock.className = 'study-question-block';
+            qBlock.setAttribute('data-question-text', q.question.toLowerCase());
 
-        const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+            const title = document.createElement('h3');
+            title.className = 'study-question-title';
+            title.innerHTML = `Q${globalIndex}. ${q.question}`;
 
-        q.options.forEach(opt => {
-            const optDiv = document.createElement('div');
-            optDiv.className = 'study-option';
-            optDiv.innerText = opt;
-
-            if (correctAnswers.includes(opt)) {
-                optDiv.classList.add('correct-answer');
-                optDiv.innerHTML = `✅ ${opt}`;
+            if(Array.isArray(q.answer)) {
+                title.innerHTML += `<br><span style="font-size:0.8em; color:var(--brand-green);">(Select all that apply)</span>`;
             }
 
-            qBlock.appendChild(optDiv);
-        });
+            qBlock.appendChild(title);
 
-        container.appendChild(qBlock);
+            const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
+
+            q.options.forEach(opt => {
+                const optDiv = document.createElement('div');
+                optDiv.className = 'study-option';
+                optDiv.innerText = opt;
+
+                if (correctAnswers.includes(opt)) {
+                    optDiv.classList.add('correct-answer');
+                    optDiv.innerHTML = `✅ ${opt}`;
+                }
+
+                qBlock.appendChild(optDiv);
+            });
+
+            container.appendChild(qBlock);
+        });
     });
 }
 
